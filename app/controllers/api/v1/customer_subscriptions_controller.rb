@@ -8,9 +8,13 @@ class Api::V1::CustomerSubscriptionsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   render json: CustomerSubscription.destroy(params[:id])  
-  # end
+  def destroy
+    if CustomerSubscription.exists?(params[:id]) 
+      render json: CustomerSubscription.destroy(params[:id])
+    else
+      render json: {"data": {}}, status: 404
+    end
+  end
 
   private
 
