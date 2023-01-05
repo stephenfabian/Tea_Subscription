@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Story 1 - Customer Subscription Create' do
     let(:customer) {Customer.create!(first_name: "Stephen", last_name: "Fabian", email: "fabianstephen@gmail.com", address: "1882 Blue Ct, Denver CO 80654")}
-    let(:subscription) {Subscription.create!(title: "Cheap Subscription", price: 5, status: "active")}
+    let(:subscription) {Subscription.create!(title: "Cheap Subscription", price: 5)}
 
   describe 'POST - /api/v1/customer_subscriptions/create' do
     it 'can create a customer subscription' do
