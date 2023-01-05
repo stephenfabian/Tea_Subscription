@@ -8,9 +8,11 @@ class Api::V1::CustomerSubscriptionsController < ApplicationController
     end
   end
 
-  def destroy
-    if CustomerSubscription.exists?(params[:id]) 
-      render json: CustomerSubscription.destroy(params[:id])
+  def update
+    if CustomerSubscription.exists?(params[:id])
+      customer_subscription = CustomerSubscription.find(params[:id])
+      customer_subscription.update(cust_subscription_params)
+      render json: CustomerSubscriptionSerializer.new(customer_subscription)
     else
       render json: {"data": {}}, status: 404
     end
@@ -19,6 +21,6 @@ class Api::V1::CustomerSubscriptionsController < ApplicationController
   private
 
   def cust_subscription_params
-    params.require(:customer_subscription).permit(:customer_id, :subscription_id)
+    params.require(:customer_subscription).permit(:id, :customer_id, :subscription_id, :status)
   end
 end
