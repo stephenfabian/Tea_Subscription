@@ -3,6 +3,9 @@
 ## About the Project
   This project demonstrates a strong understanding of Rails, ability to create restful routes, demonstration of well-organized code, following OOP, TDD and clear documentation.
 
+ ## Takeaways
+ Defending design descisions when project requirements can be approached in several different ways.  Learned new ways to format serialized responses by creating custom methods within the serializer.
+
 ## Built With
 ![RoR](https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
 ![pgsql](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -137,5 +140,3 @@ get http://localhost:3000/api/v1/customers/2/subscriptions
     ]
 }
 ```
-
-takeaways, lessons learned, challenges 
