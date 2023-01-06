@@ -29,7 +29,7 @@ RSpec.describe 'User Story 1 - Customer Subscription Create' do
       expect(parsed_response[:data][:attributes][:subscription_id]).to eq(subscription.id)
     end
 
-    it 'sad path - missing params returns error message' do
+    it 'sad path - maissing parms returns error message' do
       params = ({customer_id: customer.id})
       headers = {"CONTENT_TYPE" => "application/json"}
       post api_v1_customer_subscriptions_path, headers: headers, params: JSON.generate(customer_subscription: params)

@@ -13,5 +13,9 @@ customer3 = Customer.create!(first_name: "Katie", last_name: "Williams", email: 
 subscription1 = customer1.subscriptions.create!(title: "Premium Subscription", price: 50)
 subscription2 = customer2.subscriptions.create!(title: "Medium Subscription", price: 20)
 subscription3 = customer2.subscriptions.create!(title: "Basic Subscription", price: 10)
-subscription4 = Subscription.create!(title: "Cheap Subscription", price: 5, status: "active")
+subscription4 = Subscription.create!(title: "Cheap Subscription", price: 5)
+
+subscription1.teas.create!(title: "Black Tea", description: "super great and organic", temperature: 100, brew_time: 30)
+subscription1.teas.create!(title: "Green Tea", description: "super great and grass fed", temperature: 90, brew_time: 35)
+subscription1.teas.create!(title: "Orange Tea", description: "it's orange", temperature: 70, brew_time: 36)
 

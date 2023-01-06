@@ -24,8 +24,8 @@ RSpec.describe 'Customers Subscriptions Index' do
         expect(subscription[:attributes]).to have_key(:price)
       end
 
-      expect(parsed_response[:data].first[:id]).to eq(subscription1.id.to_s)
-      expect(parsed_response[:data].second[:id]).to eq(subscription2.id.to_s)
+      expect(parsed_response[:data].first[:id]).to eq(subscription1.id)
+      expect(parsed_response[:data].second[:id]).to eq(subscription2.id)
       expect(parsed_response[:data].count).to eq(2)
     end
 
