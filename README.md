@@ -29,7 +29,113 @@
 ## Testing Instructions
 
 - After Setup:
-    * bundle exec rspec
+    * `bundle exec rspec`
 
 ## End Points
 
+#### CustomerSubscriptions
+
+```
+post http://localhost:3000/api/v1/customer_subscriptions
+```
+##### parameters(raw json):
+```
+{
+ "customer_id": 3,
+ "subscription_id": "3"
+}
+
+
+```
+##### response:
+```
+{
+    "data": {
+        "id": "4",
+        "type": "customer_subscription",
+        "attributes": {
+            "customer_id": 3,
+            "subscription_id": 3,
+            "status": "active"
+        }
+    }
+}
+```
+
+
+```
+patch http://localhost:3000/api/v1/customer_subscriptions/3
+```
+##### parameters(raw json):
+```
+{
+ "status": "active"
+}
+```
+##### OR
+```
+{
+ "status": "cancelled"
+}
+```
+
+##### response:
+```
+{
+    "data": {
+        "id": "3",
+        "type": "customer_subscription",
+        "attributes": {
+            "customer_id": 2,
+            "subscription_id": 3,
+            "status": "active"
+        }
+    }
+}
+```
+
+##### or
+```
+{
+    "data": {
+        "id": "3",
+        "type": "customer_subscription",
+        "attributes": {
+            "customer_id": 2,
+            "subscription_id": 3,
+            "status": "cancelled"
+        }
+    }
+}
+```
+#### Customer's Subscriptions
+
+```
+get http://localhost:3000/api/v1/customers/2/subscriptions
+```
+
+##### response:
+```
+{
+    "data": [
+        {
+            "id": "2",
+            "type": "subscriptions",
+            "attributes": {
+                "title": "Medium Subscription",
+                "price": 20
+            }
+        },
+        {
+            "id": "3",
+            "type": "subscriptions",
+            "attributes": {
+                "title": "Basic Subscription",
+                "price": 10
+            }
+        }
+    ]
+}
+```
+
+takeaways, lessons learned, challenges 
